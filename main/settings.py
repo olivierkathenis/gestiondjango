@@ -27,7 +27,7 @@ SECRET_KEY = '1xw5=x2afujgi%-sfuca$$27r20st_emc1#4-e+5#sr8_^fjx6'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['websitestvincent.herokuapp.com']
+ALLOWED_HOSTS = ['stvincentdepaulfleuruswebsite.herokuapp.com']
 
 
 # Application definition
@@ -137,7 +137,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 LOGIN_REDIRECT_URL = 'gestion'
 LOGOUT_REDIRECT_URL = 'accueil'
 
-django_heroku.settings(locals())
+#django_heroku.settings(locals())
 
 # Heroku: Update database configuration from $DATABASE_URL.
 import dj_database_url
