@@ -1,0 +1,104 @@
+
+main {
+    min-height: 68.5vh;
+    padding: 1rem;
+
+    header {
+        box-shadow: none;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    h2 {
+        font-size : 2.8rem;
+        color: $couleurclair;
+        margin: 1rem;
+    }
+
+    section {
+        margin: 0 1.5rem;
+        display: flex;
+        justify-content: space-around;
+
+        article {
+            animation: slide-droite 4s ;
+            p {
+                padding: 0 1.5rem 0 1.5rem;
+                text-align: justify;
+            }
+        }
+
+        aside {
+            animation: slide-gauche 5s ;
+            max-width: 20vw;
+            margin: 0 0 0 2rem;
+
+            img {
+                float: left;
+                margin: 0 1rem 0.5rem 0;
+            }
+        }
+    }
+
+    button {
+        width: 15vw;
+        background-color: $couleur2;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+
+        a {
+            text-decoration: none;
+            color: $navlink;
+        }
+    }
+
+    button:hover {
+        background-color: $couleur1;
+        a:hover {
+            color: $navlinkhover;
+        }
+    }
+}
+
+@media screen and (min-width: 813px) and (max-width: 1680px) {
+    main {
+        min-height: 67vh;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 812px) {
+main {
+  min-height: 55vh;
+  padding: 0 1rem;
+
+  h2 {
+    font-size : 1.8rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  section {
+    flex-direction: column;
+    margin: 0;
+    //padding: 0 0 5rem 0;
+    article {
+        p {
+            padding: 0;
+        }
+    }
+    aside {
+        min-width: 90vw;
+        margin: 0;
+
+        img {
+            //float: none;
+            margin: none;
+        }
+    }
+  }
+}
+}

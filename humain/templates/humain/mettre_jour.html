@@ -1,0 +1,10 @@
+{% extends 'main/template_base.html' %}
+{% block titre %}Famille Modification {% endblock %}
+{% block contenu %}
+<h2>Modifier Famille</h2>
+<form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Modifier la famille</button>
+</form>
+{% endblock %}

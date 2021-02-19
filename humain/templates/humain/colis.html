@@ -1,0 +1,30 @@
+{% extends 'main/template_base.html' %}
+{% block titre %}Familles{% endblock %}
+{% block contenu %}
+    <h2>Liste des Familles</h2>
+    <div class="portrait">Tournez votre smartphone en mode landscape (horizontale) pour voir le tableau</div>
+    <table>
+        <thead>
+            <th>Nom</th>
+            <th>Colis</th>
+            <th>Date du dernier colis</th>
+            <th>Adultes</th>
+            <th>Enfants</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+        {% for famille in famille %}
+            <tr>
+                <td>{{ famille.nom }}</td>
+                <td>{{ famille.nbrColis }}</td>
+                <td>{% if famille.dateDernierColis %}{{ famille.dateDernierColis}}{% else %}Pas de date{% endif %}</td>
+                <td>{{ famille.nbrAdulte }}</td>
+                <td>{{ famille.nbrEnfant }}</td>
+                <td><a href="{% url 'humain:ajouter_colis' famille_id=famille.pk %}">Colis reçu</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}

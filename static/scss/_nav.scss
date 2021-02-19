@@ -1,0 +1,38 @@
+nav {
+    background: $couleurfonce;
+    min-height: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content : space-around;
+    //animation: slide-droite 1.5s ;
+
+    a {
+        color: $navlink;
+        text-decoration: none;
+        font-size: 1.2rem;
+        &:hover {
+            color: $navlinkhover;
+        }
+    }
+}
+
+@media screen and (min-width: 813px) and (max-width: 1680px) {
+    header {
+        justify-content: space-around;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 812px) {
+  nav {
+        //flex-direction: column;
+        a {
+            font-size: min(2rem, 36px);
+            padding-bottom: 1rem;
+            padding-top: 1rem;
+        }
+
+        span {
+            display: none;
+        }
+  }
+}

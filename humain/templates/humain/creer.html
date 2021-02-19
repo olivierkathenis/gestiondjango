@@ -1,0 +1,10 @@
+{% extends 'main/template_base.html' %}
+{% block titre %}Famille Création {% endblock %}
+{% block contenu %}
+<h2>Ajouter Famille</h2>
+<form action="{% url 'humain:creer' %}" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Ajouter la famille</button>
+</form>
+{% endblock %}

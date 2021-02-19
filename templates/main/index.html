@@ -1,0 +1,23 @@
+{% extends 'main/template_base.html' %}
+{% load static %}
+{% block contenu %}
+<section>
+    <article>
+        <h2>Confrérie de Fleurus</h2>
+        <p>{% lorem %}</p>
+    </article>
+    <aside>
+        <h3>Saint Vincent de Paul</h3>
+        <img src="{% static  '../media/contenu/Vincent_de_Paul.png' %}" alt="Dessin de Saint Vincent Depaul ">
+
+        <p>Vincent de Paul ou Vincent Depaul est né au village de Pouy près de Dax le 24 avril 1581 et décède le 27 septembre 1660 à Paris.
+            Il est une figure du renouveau spirituel et apostolique du catholicisme français du xviie siècle.
+            Prêtre et fondateur de congrégations, il œuvra tout au long de sa vie pour soulager la misère matérielle
+            et morale. Il a été canonisé en 1737.
+        </p>
+    </aside>
+</section>
+
+
+
+{% endblock %}

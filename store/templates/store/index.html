@@ -1,0 +1,37 @@
+{% extends 'main/template_base.html' %}
+{% block titre %}Produits{% endblock %}
+{% block contenu %}
+    <h2>Liste des Produits en stock</h2>
+    <header>
+        <div class="portrait">Tournez votre smartphone en mode landscape (horizontale) pour voir le tableau</div>
+        <p>Pour mettre à jour un produit, cliquez sur le nom du produit</p>
+        <button><a href="{% url 'store:creer' %}">Ajouter des produits</a></button>
+    </header>
+    <table>
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prix</th>
+                <th>Date de Conservation</th>
+                <th>Type de produit</th>
+                <th>Quantité</th>
+                <th>Poids</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for produit in produits %}
+            <tr>
+                <td><a href="{% url 'store:mettre_jour' produit_id=produit.pk %}">{{ produit.nom }}</a></td>
+                <td>{{ produit.prix}}€</td>
+                <td>{{ produit.dateconservation|date:"d F Y" }}</td>
+                <td>{{ produit.type }}</td>
+                <td>{{ produit.quantite }}</td>
+                <td>{{ produit.poids }}</td>
+                <td><a href="{% url 'store:retirer' produit_id=produit.pk  %}"><button>retirer un produit</button></a></td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

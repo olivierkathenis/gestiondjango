@@ -1,0 +1,49 @@
+{% extends 'main/template_base.html' %}
+{% block titre %}Familles{% endblock %}
+{% block contenu %}
+    <h2>Liste des Familles</h2>
+    <header>
+        <div class="portrait">Tournez votre smartphone en mode landscape (horizontale) pour voir le tableau</div>
+        <p>Pour mettre à jour une fiche famille, cliquez sur le nom de la famille</p>
+        <button><a href="{% url 'humain:creer' %}">Ajouter une famille</a></button>
+    </header>
+    <table>
+        <thead>
+            <th>Nom</th>
+            <th>Colis</th>
+            <th>Date du dernier colis</th>
+            <th>Adultes</th>
+            <th>Enfants</th>
+            <th>Compo</th>
+            <th>Pharma</th>
+            <th>Bus</th>
+            <th>BTE</th>
+            <th>Date CPAS</th>
+            <th>CPAS particulier</th>
+        </thead>
+        <tbody>
+        {% for famille in famille %}
+            <tr>
+                <td>
+                    <a href="{% url 'humain:mettre_jour' famille_id=famille.pk %}">
+                        {{ famille.nom }}
+                        {% if famille.prenom %}- {{ famille.prenom}}{% else %}{% endif %}
+                    </a>
+                </td>
+                <td>{{ famille.nbrColis }}</td>
+                <td>{% if famille.dateDernierColis %}{{ famille.dateDernierColis|date:"d M Y" }}{% else %}Pas de date{% endif %}</td>
+                <td>{{ famille.nbrAdulte }}</td>
+                <td>{{ famille.nbrEnfant }}</td>
+                <td>{% if famille.composition %}Oui{% else %}Non{% endif %}</td>
+                <td>{% if famille.pharmacie %}Oui{% else %}Non{% endif %}</td>
+                <td>{% if famille.bus %}Oui{% else %}Non{% endif %}</td>
+                <td>{% if famille.bte %}Oui{% else %}Non{% endif %}</td>
+                <td>{% if famille.date_cpas %}{{ famille.date_cpas|date:"d M Y" }}{% else %}Pas de date{% endif %}</td>
+                <td>{% if famille.cpas_particulier %}Oui{% else %}Non{% endif %}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}

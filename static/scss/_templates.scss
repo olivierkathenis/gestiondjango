@@ -1,0 +1,39 @@
+header {
+  grid-area: header;
+}
+nav {
+    grid-area: nav;
+}
+main {
+  grid-area: main;
+}
+footer {
+  grid-area: footer;
+}
+
+body {
+    background-image: url(../../media/design/clean-textile.png);
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "header header header header"
+    "nav nav nav nav"
+    "main main main main"
+    "footer footer footer footer";
+}
+
+@media screen and (min-width: 813px) and (max-width: 1680px) {
+    main {
+        //background: green;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 812px) {
+  body {
+    grid-template-areas:
+    "nav nav nav nav"
+    "header header header header"
+    "main main main main"
+    "footer footer footer footer";
+    }
+}

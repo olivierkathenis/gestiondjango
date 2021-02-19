@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Saint Vincent de Paul</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/foundation-icons.css' %}">
+</head>
+<body>
+{% if user.is_authenticated %}
+    {% include 'main/menugestion.html' %}
+{% else %}
+<nav>
+    <a href="{% url 'accueil' %}"><i class="fi-home"></i> <span>Accueil</span></a>
+    <a href="{% url 'contact' %}"><i class="fi-contact"></i> <span>Contact</span></a>
+</nav>
+{% endif %}
+<header>
+    <a href="{% url 'accueil' %}">
+        <img src="{% static '../media/design/logo.png' %}" alt="logo de la confrérie Saint Vincent de Paul">
+    </a>
+    <h1>Confrérie Saint Vincent Depaul de Fleurus</h1>
+</header>
+<main>
+    {% block contenu %} {% endblock%}
+</main>
+<footer> 2021 - Création <a href="www.olikcommunication.be">Olik Communication</a></footer>
+</body>
+</html>

@@ -1,0 +1,117 @@
+.portrait { display: none; }
+table {
+        animation: slide-droite 3s;
+        border:1px solid;
+        border-collapse: collapse;
+        margin: 0 auto;
+        background: white;
+
+        thead {
+	        background: $couleurfonce;
+	        color: $couleurclair;
+
+	        th {
+	            border: 1px solid #ddd;
+                padding: 1.5rem 1rem 1.5rem 1rem;
+                text-align: left;
+                background-color: $couleur2;
+                color: white;
+                font-size: 1.2rem;
+	        }
+        }
+
+        tr {
+	        padding:1rem;
+	        td {
+                border: 1px solid #ddd;
+                padding: 1rem;
+                font-size: 1.4rem;
+                button {
+                    font-size: 1.4rem;
+                    color: $couleur1;
+                    background: white;
+                    border-radius: 10px;
+                    border: 2px solid $couleur1;
+                    padding: 0.5rem;
+                    &:hover {
+                        background: $couleur1;
+                        color: white;
+                    }
+                }
+            }
+        }
+        tr:nth-child(odd){
+            background: $couleurtable;
+        }
+        tr:hover {
+            background: $couleurclair;
+        }
+}
+
+@media screen and (min-width: 813px) and (max-width: 1680px) {
+    table {
+        margin: 2rem 0;
+        width: 100%;
+        white-space: nowrap;
+        thead {
+
+	        th {
+                padding: 0.5rem;
+                text-align: left;
+                font-size: 1.2rem;
+	        }
+        }
+        tr {
+	        padding:0;
+	        td {
+                padding: 0.5rem;
+                font-size: 1.4rem;
+                button {
+                    font-size: 1.4rem;
+                    border: 2px solid $couleur1;
+                    padding: 0.5rem;
+                }
+            }
+        }
+        /*td:nth-child(3) {
+            width: 100px;
+        }*/
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 812px) and (orientation: portrait){
+    table {
+        display: none;
+    }
+    .portrait { display: block; }
+}
+
+@media screen and (min-width: 320px) and (max-width: 812px) and (orientation: landscape) {
+table {
+        margin: 0 0 1rem 0;
+
+        thead {
+
+	        th {
+                padding: 0.5rem;
+                padding-top: 0;
+                padding-bottom: 0;
+                text-align: left;
+                font-size: 1rem;
+                font-weight: normal;
+	        }
+        }
+
+        tr {
+	        padding:0;
+	        td {
+                padding: 0.5rem;
+                font-size: 1rem;
+                button {
+                    font-size: 1.5rem;
+                    padding: 1rem;
+                }
+            }
+        }
+}
+}
