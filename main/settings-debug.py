@@ -28,7 +28,7 @@ DEBUG = False
 
 
 
-ALLOWED_HOSTS = ['websitestvincent.herokuapp.com']
+#ALLOWED_HOSTS = ['websitestvincent.herokuapp.com']
 
 
 # Application definition
@@ -134,4 +134,4 @@ MEDIA_ROOT = BASE_DIR / 'media'
 LOGIN_REDIRECT_URL = 'gestion'
 LOGOUT_REDIRECT_URL = 'accueil'
 
-django_heroku.settings(locals())
+#django_heroku.settings(locals())

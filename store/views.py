@@ -5,6 +5,8 @@ from django.urls import reverse
 from .models import Fournisseur, TypeProduit, Produit, Stock
 from .forms import CreerProduitForm
 from .forms import ModifierProduitForm
+from .forms import CreerTypeProduit
+from .forms import CreerFournisseur
 
 
 def index(request):
@@ -50,3 +52,28 @@ def mettre_jour(request, produit_id):
         return render(request, 'store/index.html', {'produits': produits})
     context["form"] = form
     return render(request, "store/mettre_jour.html", context)
+
+
+def creer_fournisseur(request):
+    form = CreerFournisseur()
+    if request.method == 'POST':
+        form = CreerFournisseur(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('store:index'))
+    else:
+        form = CreerFournisseur()
+    return render(request, 'store/creation_fournisseur.html', {'form': form})
+
+
+def creer_typeproduit(request):
+    form = CreerTypeProduit()
+    if request.method == 'POST':
+        form = CreerTypeProduit(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('store:index'))
+    else:
+        form = CreerTypeProduit()
+    return render(request, 'store/creation_typeproduit.html', {'form': form})
+

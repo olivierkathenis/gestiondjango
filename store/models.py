@@ -3,10 +3,11 @@ from django.db import models
 
 class Fournisseur(models.Model):
     nom = models.CharField(max_length=200)
-    rue = models.TextField()
-    numero = models.IntegerField()
-    ville = models.CharField(max_length=250)
-    pays = models.CharField(max_length=250)
+    rue = models.TextField(null=True, blank=True)
+    numero = models.IntegerField(null=True, blank=True)
+    ville = models.CharField(max_length=250,null=True, blank=True)
+    codepostal = models.IntegerField(null=True, blank=True)
+    pays = models.CharField(max_length=250,null=True, blank=True)
 
     def __str__(self):
         return self.nom
@@ -14,7 +15,7 @@ class Fournisseur(models.Model):
 
 class TypeProduit(models.Model):
     nom = models.CharField(max_length=200)
-    unite_mesure = models.CharField(max_length=100)
+    unite_mesure = models.CharField(max_length=100, null=True, blank=True)
 
     def __str__(self):
         return self.nom
